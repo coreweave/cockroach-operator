@@ -221,7 +221,7 @@ test/preflight-%: release/generate-bundle
 #
 .PHONY: dev/build
 dev/build: dev/syncdeps
-	bazel build //...
+	bazel build //... --define APP_VERSION=$(APP_VERSION)
 
 .PHONY: dev/fmt
 dev/fmt:
