@@ -118,6 +118,9 @@ type CrdbClusterSpec struct {
 	// +operator-sdk:csv:customresourcedefinitions:type=spec,displayName="Map of additional custom annotations"
 	// +optional
 	AdditionalAnnotations map[string]string `json:"additionalAnnotations,omitempty"`
+	// (Optional) Advertise is used to deviate from the default `--advertise-host` flag sent to other cluster nodes.
+	// This value should be the entire flag that you wish to use, such as `--advertise-host=...` and not just the argument.
+	Advertise string `json:"advertise,omitempty"`
 	// (Optional) Tolerations for scheduling pods onto some dedicated nodes
 	// +operator-sdk:csv:customresourcedefinitions:type=spec,displayName="Cockroach Database Tolerations"
 	// +optional

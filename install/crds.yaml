@@ -72,6 +72,10 @@ spec:
                 description: (Optional) Additional custom resource labels that are
                   added to all resources
                 type: object
+              advertise:
+                description: (Optional) Advertise is used to deviate from the default
+                  host advertised to other cluster nodes.
+                type: string
               affinity:
                 description: (Optional) If specified, the pod's scheduling constraints
                 properties:

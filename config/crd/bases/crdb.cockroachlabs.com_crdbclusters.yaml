@@ -74,6 +74,12 @@ spec:
                 description: (Optional) Additional custom resource labels that are
                   added to all resources
                 type: object
+              advertise:
+                description: (Optional) Advertise is used to deviate from the default
+                  `--advertise-host` flag sent to other cluster nodes. This value
+                  should be the entire flag that you wish to use, such as `--advertise-host=...`
+                  and not just the argument.
+                type: string
               affinity:
                 description: (Optional) If specified, the pod's scheduling constraints
                 properties:
