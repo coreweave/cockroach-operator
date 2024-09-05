@@ -330,6 +330,14 @@ func (cluster Cluster) SecureMode() string {
 	return "--insecure"
 }
 
+func (cluster Cluster) AdvertiseFlag() string {
+	if cluster.Spec().Advertise != "" {
+		return cluster.Spec().Advertise
+	}
+	return fmt.Sprintf("--advertise-host=$(POD_NAME).%s.%s",
+		cluster.DiscoveryServiceName(), cluster.Namespace())
+}
+
 func (cluster Cluster) LoggingConfiguration(fetcher Fetcher) (string, error) {
 	if cluster.Spec().LogConfigMap != "" {
 		cm := &corev1.ConfigMap{

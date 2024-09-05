@@ -359,8 +359,7 @@ func (b StatefulSetBuilder) dbArgs() []string {
 	aa := []string{
 		"/cockroach/cockroach.sh",
 		"start",
-		fmt.Sprintf("--advertise-host=$(POD_NAME).%s.%s",
-			b.Cluster.DiscoveryServiceName(), b.Cluster.Namespace()),
+		b.Cluster.AdvertiseFlag(),
 		b.Cluster.SecureMode(),
 		"--http-port=" + fmt.Sprint(*b.Spec().HTTPPort),
 		"--sql-addr=:" + fmt.Sprint(*b.Spec().SQLPort),
